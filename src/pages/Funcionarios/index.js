@@ -11,8 +11,8 @@ import './styles.css';
 
 function FuncionariosList() {
   const [dados, setDados] = useState([]);
-  const [local, setLocal] = useState('');
- 
+    const [id, setId] = useState('');
+
 
   // const history = useHistory();
   // const username = localStorage.getItem('login');
@@ -45,6 +45,17 @@ function FuncionariosList() {
 
     setDados(response.data);
   }
+  async function handleExcluir(props){
+
+    alert (id )
+    // const response = await api.get('DeleteController'
+    // , {
+    //   params: {
+    //     id       
+    //   }
+    // }
+    // );
+  }
 
   return (
     <div id="page-funcionario-list" className="container">
@@ -70,13 +81,37 @@ function FuncionariosList() {
           return (
           // <div><h1>{info.NOME}</h1></div>
             <>
-              <ul>
-              <li>Id.: {info.ID}</li>
-              <li>Nome.: {info.NOME}</li>
-              <li>CPF.: {info.CPF}</li>
-              <hr></hr>
-              
-            </ul>
+           
+              <Input 
+              name="id" 
+              label="ID"               
+              value={info.ID}
+              onChange={(e) => { setId(e.target.id) }}              
+            />
+                <Input 
+              name="nome" 
+              label="Nome"          
+              value={info.NOME}
+              onChange={(e) => { setId(e.target.NOME) }}              
+            />
+                <Input 
+              name="CPF" 
+              label="CPF"              
+              value={info.CPF}
+              onChange={(e) => { setId(e.target.CPF) }}              
+            />
+
+              {/* <button              
+              className='button'
+              label="Excluir" 
+              type='button'              
+              onClick={(e)=>alert(e.target.value)}
+            /> */}
+
+
+            <br/>
+              <hr /><hr />
+            
           </>
           )
         })}
