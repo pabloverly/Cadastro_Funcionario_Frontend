@@ -11,7 +11,7 @@ import './styles.css';
 
 function FuncionariosList() {
   const [dados, setDados] = useState([]);
-    const [id, setId] = useState('');
+    const [ids, setId] = useState('');
 
 
   // const history = useHistory();
@@ -36,19 +36,21 @@ function FuncionariosList() {
    
 
     const response = await api.get('SelectController'
-    // , {
-    //   params: {
-    //     local       
-    //   }
-    // }
     );
 
     setDados(response.data);
   }
-  async function handleExcluir(props){
+  async function handleExcluir(id){
 
-    alert (id )
-    // const response = await api.get('DeleteController'
+    const response = await api.post('DeleteController'
+    ,{id})
+    alert('Excluido com sucesso!');
+
+    const dados = await api.get('SelectController'
+  
+    );
+
+    setDados(dados.data);
     // , {
     //   params: {
     //     id       
@@ -86,7 +88,8 @@ function FuncionariosList() {
               name="id" 
               label="ID"               
               value={info.ID}
-              onChange={(e) => { setId(e.target.id) }}              
+              onChange={(e) => { setId(e.target.id) }}  
+              disabled="true"            
             />
                 <Input 
               name="nome" 
@@ -101,6 +104,8 @@ function FuncionariosList() {
               onChange={(e) => { setId(e.target.CPF) }}              
             />
 
+
+            <Input label="Exluir" value='Excluir' onInput={e => setId(e.target.value)}type='button' onClick={()=> handleExcluir(info.ID)}  /> 
               {/* <button              
               className='button'
               label="Excluir" 
