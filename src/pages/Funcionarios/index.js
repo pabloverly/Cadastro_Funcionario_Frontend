@@ -118,7 +118,7 @@ function FuncionariosList() {
               type='button'              
               onClick={(e)=>alert(e.target.value)}
             /> */}
-
+ 
 
             <br/>
               <hr /><hr />
