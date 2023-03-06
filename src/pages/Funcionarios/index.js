@@ -32,7 +32,7 @@ function FuncionariosList() {
 
 
 
-  async function searchTeachers() {
+  async function searchfuncionarios() {
    
 
     const response = await api.get('SelectController'
@@ -47,9 +47,9 @@ function FuncionariosList() {
   }
 
   return (
-    <div id="page-teacher-list" className="container">
+    <div id="page-funcionario-list" className="container">
       <PageHeader title="Lista de Cadastros.">
-        {/* <form id="search-teachers" onSubmit={searchTeachers}>
+        {/* <form id="search-funcionarios" onSubmit={searchfuncionarios}>
     
           <Input 
             type="local" 
@@ -83,8 +83,8 @@ function FuncionariosList() {
       </main>
 
       {/* <main>
-        {dados.map((teacher: IFuncionarios) => {
-          return <FuncionariosList key={teacher.id}  />;
+        {dados.map((funcionario: IFuncionarios) => {
+          return <FuncionariosList key={funcionario.id}  />;
         })}
       </main> */}
 

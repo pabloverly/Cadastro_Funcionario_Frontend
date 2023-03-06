@@ -13,7 +13,7 @@ import './styles.css';
 
 function Form() {
   const history = useHistory();
-
+  const [Cargo, setCargo] = useState('');
   const [Nome, setNome] = useState('');
   const [CPF, setCPF] = useState('');
   const [DataAdmissao, setDataAdmissao] = useState('');
@@ -23,35 +23,36 @@ function Form() {
   const [DataExclusao, setDataExclusao] = useState('');
 
 
-  const username = localStorage.getItem('login');
 
-  // if (username === null)
-  //   {
-  //     history.push('/login');
-  //   }
-
+  
   function handleCreateClass(e: FormEvent) {
     e.preventDefault();
 
-  //  alert(Nome+    CPF+    DataAdmissao+    UltilizaVT+    DataCadastro+    DataAlteracao+    DataExclusao )
 
     api.post('InsertController', {      
       Nome,
       CPF,
       DataAdmissao,
       UltilizaVT,
-      DataCadastro,
+      DataCadastro,     
       DataAlteracao,
-      DataExclusao          
+      DataExclusao ,
+      Cargo,        
     }).then(() => {
       alert('Cadastro realizado com sucesso!');
 
-      history.push('/');
+      history.push('Home');
     }).catch(() => {
       alert('Erro no cadastro!');
     })
 
   }
+
+  function formataData(dataInput: string){
+    let data = dataInput.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');;
+    return data
+  }
+
 
   return (
     <div id="page-teacher-form" className="container">
@@ -66,6 +67,14 @@ function Form() {
             <legend>Dados</legend>
 
             <Input 
+              name="cargo" 
+              label="cargo" 
+              value={Cargo}
+              required
+              onChange={(e) => { setCargo(e.target.value) }}
+            />
+
+            <Input 
               name="nome" 
               label="nome" 
               value={Nome}
@@ -77,8 +86,8 @@ function Form() {
               name="CPF" 
               label="CPF"
               value={CPF}
-              required
-              // maxLength={11}
+              required              
+              maxLength={11}
               onChange={(e) => { setCPF(e.target.value) }}
             />
 
@@ -87,41 +96,23 @@ function Form() {
               label="DataAdmissao"
               value={DataAdmissao}
               required
+              // type="date"
+              data-mask="00/00/0000"
               placeholder='dd/mm/yyyy'
+              className="form-control" 
               onChange={(e) => { setDataAdmissao(e.target.value) }}
             />
-
+        
+        
             <Input 
               name="UltilizaVT" 
               label="UltilizaVT"
               required
-              placeholder='S ou N'
+              placeholder="S ou N"
+              // type='checkbox'
               value={UltilizaVT}
               onChange={(e) => { setUltilizaVT(e.target.value) }}
             />
-            
-            <Input 
-              name="DataCadastro" 
-              label="DataCadastro"
-              value={DataCadastro}
-              required
-              placeholder='dd/mm/yyyy'
-              onChange={(e) => { setDataCadastro(e.target.value) }}
-            />     
-             <Input 
-              name="DataAlteracao" 
-              label="DataAlteracao"
-              placeholder='dd/mm/yyyy'
-              value={DataAlteracao}
-              onChange={(e) => { setDataAlteracao(e.target.value) }}
-            />   
-             <Input 
-              name="DataExclusao" 
-              label="DataExclusao"
-              value={DataExclusao}
-              placeholder='dd/mm/yyyy'
-              onChange={(e) => { setDataExclusao(e.target.value) }}
-            />     
 
           </fieldset>     
 

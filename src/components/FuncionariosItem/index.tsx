@@ -42,7 +42,7 @@ const FuncionariosItens: React.FC<FuncionariosItemProps> = ({ funcionario }) => 
 
   }
   return (
-    <article className="teacher-item">
+    <article className="funcionario-item">
       <header>
         <img src={funcionario.avatar} alt={funcionario.grupo} />
         <div>
