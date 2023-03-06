@@ -69,6 +69,7 @@ function Form() {
               name="nome" 
               label="nome" 
               value={Nome}
+              required
               onChange={(e) => { setNome(e.target.value) }}
             />
 
@@ -76,6 +77,7 @@ function Form() {
               name="CPF" 
               label="CPF"
               value={CPF}
+              required
               // maxLength={11}
               onChange={(e) => { setCPF(e.target.value) }}
             />
@@ -84,6 +86,7 @@ function Form() {
               name="DataAdmissao" 
               label="DataAdmissao"
               value={DataAdmissao}
+              required
               placeholder='dd/mm/yyyy'
               onChange={(e) => { setDataAdmissao(e.target.value) }}
             />
@@ -91,6 +94,7 @@ function Form() {
             <Input 
               name="UltilizaVT" 
               label="UltilizaVT"
+              required
               placeholder='S ou N'
               value={UltilizaVT}
               onChange={(e) => { setUltilizaVT(e.target.value) }}
@@ -100,6 +104,7 @@ function Form() {
               name="DataCadastro" 
               label="DataCadastro"
               value={DataCadastro}
+              required
               placeholder='dd/mm/yyyy'
               onChange={(e) => { setDataCadastro(e.target.value) }}
             />     
