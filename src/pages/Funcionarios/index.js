@@ -77,48 +77,63 @@ function FuncionariosList() {
         </form> */}
       </PageHeader>
 
-      <main>
+      <main >
         {dados.map((info) => {
           // return <FuncionariosItens key={funcionario.id}  />;
           return (
           // <div><h1>{info.NOME}</h1></div>
             <>
-           
-              <Input 
-              name="id" 
-              label="ID"               
-              value={info.ID}
-              onChange={(e) => { setId(e.target.id) }}  
-              disabled="true"            
-            />
+           <div className='box'>
+              <div className=''>
+                    <Input 
+                      name="id" 
+                      label="ID"               
+                      value={info.ID}
+                      onChange={(e) => { setId(e.target.id) }}  
+                      disabled="true"            
+                    />
+                        <Input 
+                      name="nome" 
+                      label="Nome"          
+                      value={info.NOME}
+                      onChange={(e) => { setId(e.target.NOME) }}  
+                      disabled="true"                 
+                    />
+              </div>
+              <div className=''>
                 <Input 
-              name="nome" 
-              label="Nome"          
-              value={info.NOME}
-              onChange={(e) => { setId(e.target.NOME) }}              
-            />
+                name="CPF" 
+                label="CPF"              
+                value={info.CPF}
+                onChange={(e) => { setId(e.target.CPF) }}
+                disabled="true"                   
+              />
                 <Input 
-              name="CPF" 
-              label="CPF"              
-              value={info.CPF}
-              onChange={(e) => { setId(e.target.CPF) }}              
-            />
-          
-              <Input 
-              name="FUNCAO" 
-              label="FUNCAO"              
-              value={info.FUNCAO}
-              onChange={(e) => { setId(e.target.FUNCAO) }}              
-            />
-
-            <Input label="Exluir" value='Excluir' onInput={e => setId(e.target.value)}type='button' onClick={()=> handleExcluir(info.ID)}  /> 
-              {/* <button              
-              className='button'
-              label="Excluir" 
-              type='button'              
-              onClick={(e)=>alert(e.target.value)}
-            /> */}
- 
+                name="FUNCAO" 
+                label="FUNCAO"              
+                value={info.FUNCAO}             
+                onChange={(e) => { setId(e.target.FUNCAO) }}   
+                disabled="true"                
+                />
+              </div>
+                <div>
+                    <Input 
+                      name="ValeTransporte" 
+                      label="ValeTransporte"              
+                      value={info.ULTILIZAVT}
+                      onChange={(e) => { setId(e.target.ULTILIZAVT) }}   
+                      disabled="true"                
+                    />
+                    <Input className='button'
+                      lassName='button' 
+                      label="Exluir" 
+                      value='Excluir' 
+                      onInput={e => setId(e.target.value)}type='button' 
+                      onClick={()=> handleExcluir(info.ID)} 
+                    /> 
+               
+              </div>
+             </div>
 
             <br/>
               <hr /><hr />

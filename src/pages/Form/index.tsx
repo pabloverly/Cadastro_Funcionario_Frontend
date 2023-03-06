@@ -17,11 +17,11 @@ function Form() {
   const [Nome, setNome] = useState('');
   const [CPF, setCPF] = useState('');
   const [DataAdmissao, setDataAdmissao] = useState('');
-  const [UltilizaVT, setUltilizaVT] = useState('');
+  const [UltilizaVT, setUltilizaVT] = useState('N');
   const [DataCadastro, setDataCadastro] = useState('');
   const [DataAlteracao, setDataAlteracao] = useState('');
   const [DataExclusao, setDataExclusao] = useState('');
-
+  const [ckVT, setCkVt] = useState(false);
 
 
   
@@ -52,7 +52,16 @@ function Form() {
     let data = dataInput.replace(/(\d*)-(\d*)-(\d*).*/, '$3/$2/$1');;
     return data
   }
-
+  function handleCheck (){
+    if (ckVT) {
+      setCkVt(false)
+    setUltilizaVT('N')
+    }
+    else {
+      setCkVt(true)
+      setUltilizaVT('S')
+    }
+  }
 
   return (
     <div id="page-teacher-form" className="container">
@@ -88,6 +97,7 @@ function Form() {
               value={CPF}
               required              
               maxLength={11}
+              
               onChange={(e) => { setCPF(e.target.value) }}
             />
 
@@ -104,15 +114,9 @@ function Form() {
             />
         
         
-            <Input 
-              name="UltilizaVT" 
-              label="UltilizaVT"
-              required
-              placeholder="S ou N"
-              // type='checkbox'
-              value={UltilizaVT}
-              onChange={(e) => { setUltilizaVT(e.target.value) }}
-            />
+            <br/>
+            <label>UltilizaVT</label>
+            <input type='checkbox' checked={ckVT} onClick={()=>{handleCheck()}}></input>
 
           </fieldset>     
 
