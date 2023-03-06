@@ -103,7 +103,13 @@ function FuncionariosList() {
               value={info.CPF}
               onChange={(e) => { setId(e.target.CPF) }}              
             />
-
+          
+              <Input 
+              name="FUNCAO" 
+              label="FUNCAO"              
+              value={info.FUNCAO}
+              onChange={(e) => { setId(e.target.FUNCAO) }}              
+            />
 
             <Input label="Exluir" value='Excluir' onInput={e => setId(e.target.value)}type='button' onClick={()=> handleExcluir(info.ID)}  /> 
               {/* <button              
