@@ -71,10 +71,10 @@ function FuncionariosList() {
           // <div><h1>{info.NOME}</h1></div>
             <>
               <ul>
-              <li>{info.ID}</li>
-              <li>{info.NOME}</li>
-              <li>{info.CPF}</li>
-              <li><hr></hr></li>
+              <li>Id.: {info.ID}</li>
+              <li>Nome.: {info.NOME}</li>
+              <li>CPF.: {info.CPF}</li>
+              <hr></hr>
               
             </ul>
           </>
