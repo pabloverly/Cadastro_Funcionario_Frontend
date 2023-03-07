@@ -1,5 +1,4 @@
 
-
 # Tela de Principal
 ![](https://raw.githubusercontent.com/pabloverly/Cadastro_Funcionario_Frontend/master/src/assets/images/Home.png)
 
@@ -10,6 +9,16 @@
 # Tela de Pesquisa e Exclusão
 ![](https://raw.githubusercontent.com/pabloverly/Cadastro_Funcionario_Frontend/master/src/assets/images/Lista.png)
 
+
+
+# Objetivos 
+    OK - 1 Criar API como BACK END e React no FRONT para criação das telas;
+    OK - 2 Deverá ser entregue uma Solution com dois projetos separados ( API e FRONT END ); 
+    x  - 3 Para criação da Base de Dados, utilizar Entity Framework Code First; 
+    OK - 4 Os campos em tela devem respeitar as obrigatoriedades;
+    OK - 5 O campo CPF deve ter máscara para preenchimento e validação;
+    OK - 6 O campo DataAdmissao deve possuir máscara de data e algum tipo de componente calendar;
+    OK - 7 O campo UtilizaVT deve ser um checkbox
 
 
 ## Stack 
